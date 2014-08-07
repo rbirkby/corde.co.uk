@@ -195,6 +195,8 @@ $(document).ready(function() {
                 },complete: function() {
                     r.find('input[type="submit"]').removeAttr("disabled")
                 //},success: function(e) {
+                	var e = 'Your message has been correctly sent.\n\nThank you.';
+
                     alert(e);
                     r[0].reset();
                     $("> div", r).removeClass("error valid")
