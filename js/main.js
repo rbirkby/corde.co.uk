@@ -185,7 +185,7 @@ $(document).ready(function() {
             }
         });
         if (!i) {
-            $.ajax({type: "POST",url: this.action,data: r.serializeArray(),beforeSend: function() {
+            $.ajax({dataType: "jsonp",url: this.action.replace('messages?form_api_token', 'messages/ajax?form_api_token') ,data: r.serializeArray(),beforeSend: function() {
                     r.find('input[type="submit"]').attr("disabled", "disabled");
                     if ($(".ua-ios form").length) {
                         setTimeout(function() {
@@ -194,7 +194,7 @@ $(document).ready(function() {
                     }
                 },complete: function() {
                     r.find('input[type="submit"]').removeAttr("disabled")
-                //},success: function(e) {
+                },success: function() {
                 	var e = 'Your message has been correctly sent.\n\nThank you.';
 
                     alert(e);
